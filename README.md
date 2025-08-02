@@ -60,6 +60,22 @@ Consolida métricas críticas:
 - Acurácia
 - Utilização de recursos
 
+### 6. Segurança e Governança
+
+**Autenticação e Autorização (OAuth2/OIDC)**  
+Implementa controle de acesso granular via tokens JWT, garantindo que apenas usuários e sistemas autorizados possam acessar endpoints de inferência e dados sensíveis. Integra-se com provedores de identidade corporativos.
+
+**Criptografia de Dados**  
+Aplica:  
+- Criptografia em trânsito (TLS 1.3 para todas as comunicações)  
+- Criptografia em repouso (AES-256 no Data Lake e Feature Store)  
+- Gerenciamento centralizado de chaves via AWS KMS/Azure Key Vault (ou qualquer outra ferramente de Cloud Computing)
+
+**Monitoramento de Segurança**  
+- Detecção de anomalias em padrões de acesso (SIEM integrado)  
+- Scans contínuos de vulnerabilidades em containers e dependências  
+- Logs de auditoria imutáveis para rastreabilidade completa
+
 ## Expansão para Multi-Classe
 
 A arquitetura suporta inclusão de novas categorias através de:
@@ -77,6 +93,8 @@ A arquitetura suporta inclusão de novas categorias através de:
    - Mesmo serviço de inferência
 
 ## Diagrama de Arquitetura
+
+O diagrama foi projetado para refletir o fluxo completo de classificação de imagens em ambiente de produção, desde a ingestão de dados até o monitoramento contínuo. Sua estrutura em camadas separadas (coleta, processamento, inferência e feedback) permite escalar cada componente de forma independente, enquanto as conexões entre módulos garantem um ciclo fechado de melhoria contínua. A escolha por componentes especializados em cada etapa (como Kafka para streams e Triton para inferência) otimiza o desempenho sem sacrificar a flexibilidade para expansão futura, mantendo coerência com a arquitetura inicial do classificador binário.
 
 ```mermaid
 graph TD
