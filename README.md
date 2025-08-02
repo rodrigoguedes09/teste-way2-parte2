@@ -1,4 +1,3 @@
-```markdown
 # Arquitetura de Produção Escalável para Classificador Cavalo vs. Pessoa
 
 ## Visão Geral da Arquitetura
@@ -79,6 +78,17 @@ A arquitetura suporta inclusão de novas categorias através de:
 
 ## Diagrama de Arquitetura
 
+```mermaid
+graph TD
+    A[Fontes de Imagens] --> B[Data Lake]
+    B --> C[Pipeline de Processamento]
+    C --> D[Treinamento Contínuo]
+    D --> E[Model Registry]
+    E --> F[Serviço de Inferência]
+    F --> G[Clientes]
+    G --> H[Monitoramento]
+    H --> D
+```
 
 ## Considerações Finais
 
@@ -87,6 +97,3 @@ A arquitetura mantém as vantagens do classificador original enquanto adiciona c
 - Baixa latência (<500ms p95)
 - Evolução contínua do modelo
 - Expansão controlada de custos
-
-  
-```
