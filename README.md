@@ -79,17 +79,6 @@ A arquitetura suporta inclusão de novas categorias através de:
 
 ## Diagrama de Arquitetura
 
-```mermaid
-graph TD
-    A[Fontes de Imagens] --> B[Data Lake]
-    B --> C[Pipeline de Processamento]
-    C --> D[Treinamento Contínuo]
-    D --> E[Model Registry]
-    E --> F[Serviço de Inferência]
-    F --> G[Clientes]
-    G --> H[Monitoramento]
-    H --> D
-```
 
 ## Considerações Finais
 
